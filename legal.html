@@ -3,16 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USARoleplay - Legal Policies</title>
-    <!-- Reuse your existing Tailwind/FontAwesome setup -->
+    <title>USARoleplay | Legal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Smooth tab switching */
-        .legal-section { display: none; }
-        .legal-section.active { display: block; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'press-start': ['"Press Start 2P"', 'cursive'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        'float-delay': 'float 6s ease-in-out infinite 1s',
+                        fadeIn: 'fadeIn 1s ease-in',
+                        slideInLeft: 'slideInLeft 1s ease-out',
+                        slideInRight: 'slideInRight 1s ease-out',
+                        pulse: 'pulse 2s infinite',
+                        typing: 'typing 2s steps(22), blink .5s step-end infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            from: { opacity: '0' },
+                            to: { opacity: '1' },
+                        },
+                        slideInLeft: {
+                            from: { transform: 'translateX(-50px)', opacity: '0' },
+                            to: { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            from: { transform: 'translateX(50px)', opacity: '0' },
+                            to: { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        typing: {
+                            from: { width: '0' },
+                        },
+                        blink: {
+                            '50%': { 'border-color': 'transparent' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="min-h-screen font-roboto bg-slate-900 text-slate-50 overflow-x-hidden">
     <!-- Navigation (Same as your main page) -->
@@ -171,7 +221,7 @@
                         <li><a href="#" class="text-gray-300 hover:text-white">Documentation</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white">Server Status</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">LEGAL</a></li>
+                        <li><a href="https://usa-roleplay.org/legal" class="text-gray-300 hover:text-white">LEGAL</a></li>
                     </ul>
                 </div>
             </div>
