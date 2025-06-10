@@ -190,23 +190,33 @@
                         </a>
                     </div>
                 </div>
-                <div class="flex space-x-4">
-                    <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center shadow-lg hover:shadow-blue-500/30 transform hover:scale-105">
-                        <span class="relative z-10 flex items-center">
-                            <i class="fab fa-discord mr-2"></i> Join Discord
-                        </span>
-                        <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                    </a>
-                    <div class="md:hidden">
-                        <button type="button" class="text-gray-300 hover:text-white focus:outline-none transition-transform duration-300 hover:rotate-180" id="mobile-menu-button">
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+        <div class="flex space-x-4">
+            <!-- Join Discord Button -->
+            <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center shadow-lg hover:shadow-blue-500/30 transform hover:scale-105">
+                <span class="relative z-10 flex items-center">
+                    <i class="fab fa-discord mr-2"></i> Join Discord
+                </span>
+                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            </a>
+        
+            <!-- Support the Project Button -->
+            <a href="/support" class="relative overflow-hidden group bg-gradient-to-br from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center shadow-lg hover:shadow-green-500/30 transform hover:scale-105">
+                <span class="relative z-10 flex items-center">
+                    <i class="fas fa-heart mr-2"></i> Support the Project!
+                </span>
+                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            </a>
+        
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button type="button" class="text-gray-300 hover:text-white focus:outline-none transition-transform duration-300 hover:rotate-180" id="mobile-menu-button">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
+
         
         <!-- Mobile menu -->
         <div class="md:hidden hidden origin-top" id="mobile-menu">
