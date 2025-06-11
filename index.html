@@ -299,110 +299,172 @@
         </div>
     </section>
 
-<!-- Who Are We? Section -->
-<section class="py-24 bg-gray-900/50 backdrop-blur-sm relative overflow-hidden">
-    <div class="absolute -top-20 right-0 w-72 h-72 bg-indigo-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
-    <div class="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
+<!-- Enhanced Who Are We? Section -->
+<section class="relative py-28 bg-gray-900 overflow-hidden isolate">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-20 right-0 w-72 h-72 bg-indigo-500 rounded-full filter blur-[100px] opacity-10 animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500 rounded-full filter blur-[100px] opacity-10 animate-float-delay"></div>
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-500 rounded-full filter blur-[120px] opacity-5 animate-float-xy"></div>
+  </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-20 animate-fade-in">
-            <div class="inline-flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700 mb-6">
-                <div class="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></div>
-                <span class="text-sm font-medium text-amber-400">WHO WE ARE</span>
-            </div>
-            <h2 class="text-4xl md:text-6xl font-black font-orbitron mb-6 text-white">
-                <span class="text-gradient">WHO ARE WE?</span>
-            </h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                We are a team of passionate creators, gamers, and developers committed to crafting immersive and unforgettable multiplayer experiences. Our mission is to provide a safe, fair, and thriving community where everyone feels welcome.
-            </p>
-        </div>
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow">
-                <div class="w-14 h-14 bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-400 text-2xl mb-4 group-hover:bg-indigo-900/50 transition-colors duration-300">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Active Moderation</h3>
-                <p class="text-gray-300">
-                    24/7 staff coverage to ensure fair play and quick response to any issues. Our team is trained to handle situations professionally.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.1s;">
-                <div class="w-14 h-14 bg-emerald-900/30 rounded-lg flex items-center justify-center text-emerald-400 text-2xl mb-4 group-hover:bg-emerald-900/50 transition-colors duration-300">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Weekly Events</h3>
-                <p class="text-gray-300">
-                    Regular tournaments, building contests, and special events with prizes. Something exciting happening almost every day!
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.2s;">
-                <div class="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 text-2xl mb-4 group-hover:bg-purple-900/50 transition-colors duration-300">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Custom Plugins</h3>
-                <p class="text-gray-300">
-                    Unique gameplay mechanics developed specifically for our community. Regular updates based on player feedback.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.3s;">
-                <div class="w-14 h-14 bg-amber-900/30 rounded-lg flex items-center justify-center text-amber-400 text-2xl mb-4 group-hover:bg-amber-900/50 transition-colors duration-300">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">99.9% Uptime</h3>
-                <p class="text-gray-300">
-                    Enterprise-grade hosting with automatic backups and DDoS protection. We monitor our servers 24/7 to minimize downtime.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.4s;">
-                <div class="w-14 h-14 bg-pink-900/30 rounded-lg flex items-center justify-center text-pink-400 text-2xl mb-4 group-hover:bg-pink-900/50 transition-colors duration-300">
-                    <i class="fas fa-user-friends"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">New Player Support</h3>
-                <p class="text-gray-300">
-                    Dedicated mentors, starter kits, and comprehensive guides to help newcomers. We believe every player deserves a great start.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.5s;">
-                <div class="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 text-2xl mb-4 group-hover:bg-blue-900/50 transition-colors duration-300">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Performance Optimized</h3>
-                <p class="text-gray-300">
-                    Regular server maintenance and optimization to ensure smooth gameplay even with 100+ players online.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.6s;">
-                <div class="w-14 h-14 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 text-2xl mb-4 group-hover:bg-red-900/50 transition-colors duration-300">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Passionate Staff</h3>
-                <p class="text-gray-300">
-                    Our team genuinely cares about the community. Many staff members started as regular players before joining our team.
-                </p>
-            </div>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group animate-fade-in hover:animate-border-glow" style="animation-delay: 0.7s;">
-                <div class="w-14 h-14 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 text-2xl mb-4 group-hover:bg-green-900/50 transition-colors duration-300">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Active Forums</h3>
-                <p class="text-gray-300">
-                    Robust community forums for suggestions, bug reports, and general discussion. Your voice matters to us.
-                </p>
-            </div>
-        </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+    <!-- Section header with enhanced animations -->
+    <div class="text-center mb-24 animate-fade-in-up">
+      <div class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-2 rounded-full border border-gray-700/50 mb-6 shadow-lg shadow-indigo-500/10 transition-all duration-500 hover:shadow-indigo-500/20">
+        <div class="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse-fast"></div>
+        <span class="text-sm font-semibold tracking-wider text-amber-300/90 uppercase">WHO WE ARE</span>
+      </div>
+      
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 animate-text-shimmer">WHO ARE WE?</span>
+      </h2>
+      
+      <div class="w-24 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full animate-scale-x"></div>
+      
+      <p class="text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed text-justify">
+        We are a team of passionate creators, gamers, and developers committed to crafting immersive and unforgettable multiplayer experiences. Our mission is to provide a safe, fair, and thriving community where everyone feels welcome and empowered to create amazing memories together.
+      </p>
     </div>
+
+    <!-- Feature cards grid with staggered animations -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-indigo-400/30 hover:shadow-indigo-500/10">
+        <div class="w-16 h-16 bg-indigo-900/20 rounded-xl flex items-center justify-center text-indigo-400 text-3xl mb-5 group-hover:bg-indigo-900/40 group-hover:text-indigo-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Active Moderation</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          24/7 staff coverage to ensure fair play and quick response to any issues. Our professional team maintains a welcoming environment for all players.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-emerald-400/30 hover:shadow-emerald-500/10" style="animation-delay: 100ms">
+        <div class="w-16 h-16 bg-emerald-900/20 rounded-xl flex items-center justify-center text-emerald-400 text-3xl mb-5 group-hover:bg-emerald-900/40 group-hover:text-emerald-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Weekly Events</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Regular tournaments, building contests, and special events with exciting prizes. New challenges await almost every day to keep gameplay fresh.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-purple-400/30 hover:shadow-purple-500/10" style="animation-delay: 200ms">
+        <div class="w-16 h-16 bg-purple-900/20 rounded-xl flex items-center justify-center text-purple-400 text-3xl mb-5 group-hover:bg-purple-900/40 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Custom Plugins</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Unique gameplay mechanics developed specifically for our community. We implement regular updates based on player feedback and suggestions.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-amber-400/30 hover:shadow-amber-500/10" style="animation-delay: 300ms">
+        <div class="w-16 h-16 bg-amber-900/20 rounded-xl flex items-center justify-center text-amber-400 text-3xl mb-5 group-hover:bg-amber-900/40 group-hover:text-amber-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">99.9% Uptime</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Enterprise-grade hosting with automatic backups and DDoS protection. Our servers are monitored 24/7 to ensure maximum availability.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-pink-400/30 hover:shadow-pink-500/10" style="animation-delay: 400ms">
+        <div class="w-16 h-16 bg-pink-900/20 rounded-xl flex items-center justify-center text-pink-400 text-3xl mb-5 group-hover:bg-pink-900/40 group-hover:text-pink-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">New Player Support</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Dedicated mentors, starter kits, and comprehensive guides to help newcomers. We ensure every player gets the perfect introduction to our world.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-blue-400/30 hover:shadow-blue-500/10" style="animation-delay: 500ms">
+        <div class="w-16 h-16 bg-blue-900/20 rounded-xl flex items-center justify-center text-blue-400 text-3xl mb-5 group-hover:bg-blue-900/40 group-hover:text-blue-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Performance Optimized</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Regular server maintenance and optimization ensures smooth gameplay even with 100+ players online simultaneously.
+        </p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-red-400/30 hover:shadow-red-500/10" style="animation-delay: 600ms">
+        <div class="w-16 h-16 bg-red-900/20 rounded-xl flex items-center justify-center text-red-400 text-3xl mb-5 group-hover:bg-red-900/40 group-hover:text-red-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Passionate Staff</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Our team genuinely cares about the community. Many staff members began as players, bringing authentic understanding to their roles.
+        </p>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-green-400/30 hover:shadow-green-500/10" style="animation-delay: 700ms">
+        <div class="w-16 h-16 bg-green-900/20 rounded-xl flex items-center justify-center text-green-400 text-3xl mb-5 group-hover:bg-green-900/40 group-hover:text-green-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Active Forums</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Robust community forums for suggestions, bug reports, and discussion. We actively listen and respond to our players' voices and ideas.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
-    <!-- Servers Section -->
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(10px); }
+  }
+  @keyframes float-delay {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(15px) translateX(-10px); }
+  }
+  @keyframes float-xy {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-40%, -60%) scale(1.05); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes text-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes scale-x {
+    from { transform: scaleX(0); opacity: 0; }
+    to { transform: scaleX(1); opacity: 1; }
+  }
+  @keyframes pulse-fast {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .animate-float { animation: float 8s ease-in-out infinite; }
+  .animate-float-delay { animation: float-delay 10s ease-in-out infinite; }
+  .animate-float-xy { animation: float-xy 12s ease-in-out infinite; }
+  .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+  .animate-text-shimmer { 
+    background-size: 200% auto;
+    animation: text-shimmer 3s linear infinite; 
+  }
+  .animate-scale-x { animation: scale-x 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .animate-pulse-fast { animation: pulse-fast 1.5s ease-in-out infinite; }
+</style>    <!-- Servers Section -->
     <section id="servers" class="py-24 bg-gradient-to-b from-gray-900/50 to-gray-900 backdrop-blur-sm relative overflow-hidden">
         <div class="absolute -top-20 left-1/4 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
         <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-indigo-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
