@@ -565,73 +565,75 @@
                 </div>
             </div>
         </div>            
-            <!-- DayZ Server Card -->
-            <div class="relative server-card group">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative bg-gray-800/80 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="relative">
-                                <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-75"></div>
-                                <img src="https://github.com/USA-ROLEPLAY/frontend/blob/main/assets/dayz.png?raw=true" alt="DayZ" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
-                            </div>
+        <!-- DayZ Server Card -->
+        <div class="relative server-card group">
+            <!-- Changed gradient from blue to red -->
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-orange-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-gray-800/80 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <!-- Changed inner glow to red -->
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-75"></div>
+                            <img src="https://github.com/USA-ROLEPLAY/frontend/blob/main/assets/dayz.png?raw=true" alt="DayZ" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Deadland Survival</h3>
-                                <!-- Status Indicator -->
-                                <template x-if="servers.dayz.status === 'coming-soon'">
-                                    <div class="flex items-center bg-amber-900/30 text-amber-300 text-xs px-3 py-1 rounded-full animate-pulse-slow">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 animate-ping-slow"></span>
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                                        </span>
-                                        Coming Soon
-                                    </div>
-                                </template>
-                                <template x-if="servers.dayz.status === 'offline'">
-                                    <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                        </span>
-                                        Offline
-                                    </div>
-                                </template>
-                                <template x-if="servers.dayz.status === 'maintenance'">
-                                    <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                                        </span>
-                                        Maintenance
-                                    </div>
-                                </template>
-                            </div>
-                            <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
-                                Hardcore survival experience with custom lore, factions, and economy. Currently in development - join our Discord to vote on features!
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Version: 1.28</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Custom Modpack</span>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
-                                    <span class="relative z-10 flex items-center">
-                                        <i class="fab fa-discord mr-2"></i> Join Discord
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Deadland Survival</h3>
+                            <!-- Status Indicator (unchanged) -->
+                            <template x-if="servers.dayz.status === 'coming-soon'">
+                                <div class="flex items-center bg-amber-900/30 text-amber-300 text-xs px-3 py-1 rounded-full animate-pulse-slow">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 animate-ping-slow"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                                     </span>
-                                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                                </a>
-                                <button @click="openInfoModal('dayz')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
-                                    <span class="relative z-10 flex items-center">
-                                        <i class="fas fa-info-circle mr-2"></i> Server Info
+                                    Coming Soon
+                                </div>
+                            </template>
+                            <template x-if="servers.dayz.status === 'offline'">
+                                <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                                     </span>
-                                </button>
-                            </div>
+                                    Offline
+                                </div>
+                            </template>
+                            <template x-if="servers.dayz.status === 'maintenance'">
+                                <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                    </span>
+                                    Maintenance
+                                </div>
+                            </template>
+                        </div>
+                        <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
+                            Hardcore survival experience with custom lore, factions, and economy. Currently in development - join our Discord to vote on features!
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-red-900/30 text-red-300 text-xs px-3 py-1.5 rounded-full border border-red-700/50">Version: 1.28</span>
+                            <span class="bg-red-900/30 text-red-300 text-xs px-3 py-1.5 rounded-full border border-red-700/50">Custom Modpack</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <!-- Changed button gradient to red -->
+                            <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/30 flex items-center justify-center">
+                                <span class="relative z-10 flex items-center">
+                                    <i class="fab fa-discord mr-2"></i> Join Discord
+                                </span>
+                                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                            </a>
+                            <button @click="openInfoModal('dayz')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
+                                <span class="relative z-10 flex items-center">
+                                    <i class="fas fa-info-circle mr-2"></i> Server Info
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+            
         <!-- Upcoming Games Section -->
         <div class="mt-20 text-center">
             <h3 class="text-3xl font-bold text-white mb-10 tracking-tight">
