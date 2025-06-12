@@ -428,56 +428,52 @@
 <section id="game-servers" class="py-24 bg-gray-900/80 backdrop-blur-sm relative overflow-hidden" x-data="gameServers">
     <!-- Animated background elements -->
     <div class="absolute inset-0 -z-10 overflow-hidden">
-        <div class="absolute -top-20 right-1/4 w-72 h-72 bg-red-500 rounded-full filter blur-[100px] opacity-10 animate-[float_8s_ease-in-out_infinite]"></div>
+        <div class="absolute -top-20 right-1/4 w-72 h-72 bg-indigo-500 rounded-full filter blur-[100px] opacity-10 animate-[float_8s_ease-in-out_infinite]"></div>
         <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-[100px] opacity-10 animate-[float2_10s_ease-in-out_infinite]"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5">
             <svg viewBox="0 0 200 100" class="w-full h-full">
                 <pattern id="stars" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2)">
                     <polygon points="10,0 4,20 20,8 0,8 16,20" fill="white"/>
                 </pattern>
-                <rect width="200" height="100" fill="url(#stars)" />
+                <rect width="200" height="100" fill="url(#stars)" opacity="0.1"/>
             </svg>
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section header with patriotic theme -->
+        <!-- Section header -->
         <div class="text-center mb-16">
-            <div class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-2 rounded-full border border-gray-700/50 mb-6 shadow-lg shadow-red-500/10 transition-all duration-500 hover:shadow-blue-500/20">
-                <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
-                <span class="text-sm font-semibold tracking-wider text-white/90 uppercase">AMERICAN GAMING NETWORK</span>
+            <div class="inline-flex items-center bg-gray-800 px-4 py-2 rounded-full border border-gray-700/50 mb-6 shadow-lg shadow-indigo-500/10 transition-all duration-500 hover:shadow-blue-500/20">
+                <div class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                <span class="text-sm font-semibold tracking-wider text-amber-300/90 uppercase">OUR SERVERS</span>
             </div>
             
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-                <span class="relative inline-block">
-                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-full"></span>
-                    <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-blue-400">Patriot Game Servers</span>
-                </span>
-            </h2>
-            
-            <div class="w-24 h-1.5 bg-gradient-to-r from-red-500 via-white to-blue-500 mx-auto mb-8 rounded-full"></div>
+            <h2 class="text-4xl md:text-6xl font-black font-orbitron mb-6 text-white">
+            <span class="text-gradient">Our Servers</span>
+
+            <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-8 rounded-full"></div>
             
             <p class="text-lg text-gray-300/90 max-w-3xl mx-auto leading-relaxed">
-                Join our high-performance gaming servers hosted on American soil with low ping and freedom-focused communities
+                Join our low-latency gaming servers with premium hardware and active communities
             </p>
         </div>
         
-        <!-- Server cards grid with star-spangled design -->
+        <!-- Server cards grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Minecraft Server Card -->
             <div class="relative server-card group">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-white to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative bg-gray-800/80 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
                             <div class="relative">
-                                <div class="absolute -inset-1.5 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-75"></div>
+                                <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-75"></div>
                                 <img src="https://via.placeholder.com/150/1DB954/FFFFFF?text=MC" alt="Minecraft" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
                             </div>
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">LibertyCraft</h3>
+                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Skylands RP</h3>
                                 <!-- Status Indicator -->
                                 <template x-if="servers.minecraft.status === 'online'">
                                     <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
@@ -506,17 +502,17 @@
                                 </template>
                             </div>
                             <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
-                                American-themed Minecraft server with custom monuments, freedom-focused gameplay, and patriotic events.
+                                Immersive roleplay server with custom plugins, economy system, and regular events. Join our growing community of builders and storytellers.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-5">
                                 <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.20.1</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">USA Hosted</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Premium Hosted</span>
                                 <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">50ms Ping</span>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-3">
-                                <button @click="openModal('minecraft')" class="relative overflow-hidden group bg-gradient-to-br from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/30 flex items-center justify-center">
+                                <button @click="openModal('minecraft')" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
                                     <span class="relative z-10 flex items-center">
-                                        <i class="fas fa-flag-usa mr-2"></i> Join Now
+                                        <i class="fas fa-plug mr-2"></i> Join Now
                                     </span>
                                     <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
                                 </button>
@@ -533,18 +529,18 @@
             
             <!-- DayZ Server Card -->
             <div class="relative server-card group">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-white to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative bg-gray-800/80 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
                             <div class="relative">
-                                <div class="absolute -inset-1.5 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-75"></div>
+                                <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-75"></div>
                                 <img src="https://via.placeholder.com/150/FBBF24/FFFFFF?text=DayZ" alt="DayZ" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
                             </div>
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">FreedomZ</h3>
+                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Survival Chronicles</h3>
                                 <!-- Status Indicator -->
                                 <template x-if="servers.dayz.status === 'online'">
                                     <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
@@ -573,15 +569,15 @@
                                 </template>
                             </div>
                             <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
-                                Post-apocalyptic survival set in rural America with custom military bases and patriotic factions.
+                                Hardcore survival experience with custom lore, factions, and economy. Currently in development - join our Discord to vote on features!
                             </p>
                             <div class="flex flex-wrap gap-2 mb-5">
                                 <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.23</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Texas Hosted</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Custom Modpack</span>
                                 <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">35ms Ping</span>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-3">
-                                <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
+                                <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
                                     <span class="relative z-10 flex items-center">
                                         <i class="fab fa-discord mr-2"></i> Join Discord
                                     </span>
@@ -602,57 +598,54 @@
         <!-- Upcoming Games Section -->
         <div class="mt-20 text-center">
             <h3 class="text-3xl font-bold text-white mb-10 tracking-tight">
-                <span class="relative inline-block">
-                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-full"></span>
-                    <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-blue-400">Coming Soon</span>
-                </span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Coming Soon</span>
             </h3>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
                 <!-- Rust -->
-                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-red-400/30">
+                <div class="group relative bg-gray-800/80 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-400/30">
                     <div class="relative mb-4">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <img src="https://via.placeholder.com/150/F97316/FFFFFF?text=Rust" alt="Rust" class="relative w-16 h-16 mx-auto object-contain">
                     </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Freedom Rust</h4>
+                    <h4 class="text-lg font-semibold text-white mb-3">Rust Origins</h4>
                     <div class="flex justify-center gap-2">
                         <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">Q4 2023</span>
-                    </div>
-                    <div class="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                </div>
-                
-                <!-- FiveM -->
-                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-400/30">
-                    <div class="relative mb-4">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                        <img src="https://via.placeholder.com/150/10B981/FFFFFF?text=FiveM" alt="FiveM" class="relative w-16 h-16 mx-auto object-contain">
-                    </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Patriot RP</h4>
-                    <div class="flex justify-center gap-2">
-                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">2024</span>
                     </div>
                     <div class="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
                 </div>
                 
-                <!-- Arma Reforger -->
-                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-white/30">
+                <!-- FiveM -->
+                <div class="group relative bg-gray-800/80 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-400/30">
                     <div class="relative mb-4">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <img src="https://via.placeholder.com/150/10B981/FFFFFF?text=FiveM" alt="FiveM" class="relative w-16 h-16 mx-auto object-contain">
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Metro RP</h4>
+                    <div class="flex justify-center gap-2">
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-indigo-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- Arma Reforger -->
+                <div class="group relative bg-gray-800/80 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-400/30">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <img src="https://via.placeholder.com/150/EF4444/FFFFFF?text=Arma" alt="Arma Reforger" class="relative w-16 h-16 mx-auto object-contain">
                     </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Eagle Ops</h4>
+                    <h4 class="text-lg font-semibold text-white mb-3">Tactical Ops</h4>
                     <div class="flex justify-center gap-2">
                         <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">TBD</span>
                     </div>
-                    <div class="absolute top-2 right-2 w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
                 </div>
             </div>
             
             <div class="mt-16">
-                <a href="https://discord.gg/example" target="_blank" class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 rounded-full border border-gray-700/50 shadow-lg shadow-red-500/10 transition-all duration-500 hover:shadow-blue-500/20 group">
-                    <i class="fas fa-star-spangled text-red-500 mr-3 group-hover:text-blue-400 transition-colors"></i>
-                    <span class="text-white font-medium">Suggest a game for our American network</span>
+                <a href="https://discord.gg/example" target="_blank" class="inline-flex items-center bg-gray-800 px-6 py-3 rounded-full border border-gray-700/50 shadow-lg shadow-blue-500/10 transition-all duration-500 hover:shadow-indigo-500/20 group">
+                    <i class="fab fa-discord text-blue-400 mr-3 group-hover:text-indigo-400 transition-colors"></i>
+                    <span class="text-white font-medium">Suggest a game for our network</span>
                     <i class="fas fa-arrow-right text-white ml-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
                 </a>
             </div>
@@ -664,22 +657,24 @@
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" 
             x-transition:leave-end="opacity-0 scale-95" 
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" x-cloak>
-            <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl max-w-md w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
+            <div class="relative bg-gray-800 rounded-2xl max-w-md w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
                 <!-- Close button -->
-                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-red-500/30 flex items-center justify-center transition-all close-btn">
-                    <i class="fas fa-times text-gray-400 hover:text-white"></i>
+                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-gray-600/70 flex items-center justify-center transition-all">
+                    <svg class="w-4 h-4 text-gray-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
                 </button>
                 
                 <div class="text-center mb-6">
                     <div class="relative mx-auto w-20 h-20 mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500 rounded-full blur opacity-75"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full blur opacity-75"></div>
                         <img :src="activeServer.image" :alt="activeServer.name" class="relative w-full h-full object-contain rounded-full border-2 border-white/10">
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-2">Join <span x-text="activeServer.name"></span></h3>
-                    <p class="text-gray-400">American-hosted with low ping for all US players</p>
+                    <p class="text-gray-400">Premium hosted with low latency for all players</p>
                 </div>
                 
-                <div class="bg-gray-800/50 rounded-xl p-4 mb-6 border border-gray-700/30">
+                <div class="bg-gray-700/50 rounded-xl p-4 mb-6 border border-gray-700/30">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-sm font-medium text-gray-400">Server IP:</span>
                         <button @click="copyToClipboard(activeServer.ip)" class="text-xs bg-gray-700/50 hover:bg-gray-600/50 text-blue-400 px-2 py-1 rounded transition-colors">
@@ -687,22 +682,22 @@
                         </button>
                     </div>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-blue-400">
                             <i class="fas fa-server"></i>
                         </div>
                         <input type="text" :id="'server-ip-'+activeServer.id" readonly :value="activeServer.ip" class="bg-gray-700/50 border border-gray-600/50 text-white text-sm rounded-lg block w-full pl-10 pr-3 py-3 font-mono">
                     </div>
                     <div class="mt-3 flex items-center text-sm text-gray-400">
-                        <i class="fas fa-map-marker-alt mr-2 text-red-400"></i>
+                        <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
                         <span x-text="activeServer.location"></span>
                         <span class="mx-2">•</span>
-                        <i class="fas fa-tachometer-alt mr-2 text-blue-400"></i>
+                        <i class="fas fa-tachometer-alt mr-2 text-indigo-400"></i>
                         <span x-text="activeServer.ping"></span> avg ping
                     </div>
                 </div>
                 
                 <div class="space-y-3">
-                    <a :href="activeServer.discord" target="_blank" class="block w-full bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
+                    <a :href="activeServer.discord" target="_blank" class="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
                         <i class="fab fa-discord mr-2"></i> Join Our Discord
                     </a>
                     <button @click="openInfoModal(activeServer.id)" class="block w-full bg-gray-700/50 hover:bg-gray-600/50 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center">
@@ -718,15 +713,17 @@
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" 
             x-transition:leave-end="opacity-0 scale-95" 
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" x-cloak>
-            <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl max-w-2xl w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
+            <div class="relative bg-gray-800 rounded-2xl max-w-2xl w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
                 <!-- Close button -->
-                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-red-500/30 flex items-center justify-center transition-all close-btn">
-                    <i class="fas fa-times text-gray-400 hover:text-white"></i>
+                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-gray-600/70 flex items-center justify-center transition-all">
+                    <svg class="w-4 h-4 text-gray-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
                 </button>
                 
                 <div class="flex items-center mb-6">
                     <div class="relative mr-4">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-50"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-50"></div>
                         <img :src="activeServer.image" :alt="activeServer.name" class="relative w-16 h-16 rounded-xl border-2 border-white/10">
                     </div>
                     <div>
@@ -763,12 +760,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div>
                         <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
-                            <i class="fas fa-flag-usa text-red-400 mr-2"></i> American Features
+                            <i class="fas fa-cog text-blue-400 mr-2"></i> Server Details
                         </h4>
                         <ul class="space-y-2 text-gray-300">
                             <template x-for="detail in activeServer.details">
                                 <li class="flex items-start">
-                                    <i class="fas fa-star text-yellow-400 mr-2 mt-1 text-xs"></i>
+                                    <i class="fas fa-check-circle text-blue-400 mr-2 mt-1 text-xs"></i>
                                     <span x-text="detail"></span>
                                 </li>
                             </template>
@@ -777,12 +774,12 @@
                     
                     <div>
                         <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
-                            <i class="fas fa-calendar-star text-blue-400 mr-2"></i> Patriotic Events
+                            <i class="fas fa-calendar-alt text-indigo-400 mr-2"></i> Events & Features
                         </h4>
                         <ul class="space-y-2 text-gray-300">
                             <template x-for="feature in activeServer.features">
                                 <li class="flex items-start">
-                                    <i class="fas fa-fire text-red-400 mr-2 mt-1 text-xs"></i>
+                                    <i class="fas fa-star text-yellow-400 mr-2 mt-1 text-xs"></i>
                                     <span x-text="feature"></span>
                                 </li>
                             </template>
@@ -790,30 +787,30 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-800/50 rounded-xl p-4 mb-6">
+                <div class="bg-gray-700/50 rounded-xl p-4 mb-6">
                     <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
-                        <i class="fas fa-balance-scale text-white mr-2"></i> Freedom Rules
+                        <i class="fas fa-gavel text-white mr-2"></i> Server Rules
                     </h4>
                     <p class="text-gray-300 mb-4" x-text="activeServer.rules"></p>
                     <div class="flex flex-wrap gap-3">
                         <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
-                            <div class="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-                            <span class="text-sm text-gray-300">US-Based Staff</span>
+                            <div class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-sm text-gray-300">Active Staff</span>
                         </div>
                         <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
-                            <div class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                            <div class="w-2 h-2 bg-indigo-400 rounded-full mr-2 animate-pulse"></div>
                             <span class="text-sm text-gray-300">24/7 Support</span>
                         </div>
                         <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
-                            <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                            <div class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></div>
                             <span class="text-sm text-gray-300">Fair Play</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <button @click="openModal(activeServer.id)" class="flex-1 bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
-                        <i class="fas fa-flag-usa mr-2"></i> Join Server
+                    <button @click="openModal(activeServer.id)" class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-plug mr-2"></i> Join Server
                     </button>
                     <a :href="activeServer.discord" target="_blank" class="flex-1 bg-gray-700/50 hover:bg-gray-600/50 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center">
                         <i class="fab fa-discord mr-2"></i> Community
@@ -830,53 +827,53 @@ document.addEventListener('alpine:init', () => {
         activeModal: null,
         activeServer: null,
         
-        // Server configuration - now with patriotic American details
+        // Server configuration
         servers: {
             minecraft: {
                 id: 'minecraft',
-                name: 'LibertyCraft',
+                name: 'Skylands RP',
                 image: 'https://via.placeholder.com/150/1DB954/FFFFFF?text=MC',
-                ip: 'play.libertycraft.us',
-                discord: 'https://discord.gg/libertycraft',
+                ip: 'play.skylands-rp.com',
+                discord: 'https://discord.gg/skylands',
                 location: 'Chicago, IL',
                 ping: '35ms',
                 status: 'online',
                 details: [
-                    'American-themed monuments and builds',
-                    '4th of July special events',
-                    'US Constitution-inspired rules',
-                    '50-state exploration map'
+                    'Custom roleplay plugins',
+                    'Persistent world economy',
+                    'Weekly building contests',
+                    'Active player community'
                 ],
                 features: [
-                    'Weekly Freedom Fridays',
-                    'Founding Father RP Events',
-                    'State vs State competitions',
-                    'Patriotic build contests'
+                    'Monthly story events',
+                    'Player-run businesses',
+                    'Custom terrain generation',
+                    'Regular server updates'
                 ],
-                rules: 'Our server celebrates American values with fair play for all. Our all-American staff team ensures quick response to any issues while maintaining a fun, freedom-focused environment.'
+                rules: 'Our server focuses on fair play and community building. Our experienced staff team ensures quick response to any issues while maintaining a fun, engaging environment for all players.'
             },
             dayz: {
                 id: 'dayz',
-                name: 'FreedomZ Survival',
+                name: 'Survival Chronicles',
                 image: 'https://via.placeholder.com/150/FBBF24/FFFFFF?text=DayZ',
-                ip: 'dayz.freedomnetwork.us',
-                discord: 'https://discord.gg/freedomz',
+                ip: 'dayz.survival-chronicles.com',
+                discord: 'https://discord.gg/survival',
                 location: 'Dallas, TX',
                 ping: '28ms',
                 status: 'online',
                 details: [
-                    'American rural and urban maps',
-                    'Custom military bases',
-                    'Patriot faction system',
-                    'US-themed loot and items'
+                    'Custom survival mechanics',
+                    'Faction-based gameplay',
+                    'Persistent base building',
+                    'Regular loot refreshes'
                 ],
                 features: [
-                    'Weekly Liberty Raids',
-                    'Revolutionary War reenactments',
-                    'State Militia system',
-                    'American holiday specials'
+                    'Weekly survival challenges',
+                    'Player-run settlements',
+                    'Custom map locations',
+                    'Monthly wipe events'
                 ],
-                rules: 'Hardcore survival with American values. Our Texan-hosted server provides low ping coast-to-coast with US-based staff available around the clock to ensure fair play.'
+                rules: 'Hardcore survival experience with custom mechanics. Our staff team is available around the clock to ensure fair play and quick resolution of any issues that may arise.'
             }
         },
         
@@ -897,10 +894,10 @@ document.addEventListener('alpine:init', () => {
         
         copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                // Show a toast notification with patriotic theme
+                // Show a toast notification
                 const toast = document.createElement('div');
-                toast.className = 'fixed bottom-4 right-4 bg-gradient-to-r from-red-500 to-blue-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-up flex items-center';
-                toast.innerHTML = '<i class="fas fa-flag-usa mr-2"></i> Copied to clipboard!';
+                toast.className = 'fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-up flex items-center';
+                toast.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Copied to clipboard!';
                 document.body.appendChild(toast);
                 setTimeout(() => {
                     toast.classList.add('animate-fade-out');
