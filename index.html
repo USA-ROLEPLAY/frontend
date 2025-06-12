@@ -134,6 +134,38 @@
                 background-size: 20px 20px;
                 background-color: #0f172a; /* Dark background */
             }
+                @font-face {
+                font-family: 'Minecraft';
+                src: url('https://fonts.cdnfonts.com/css/minecraft-4') format('woff2');
+            }
+
+            .font-minecraft {
+                font-family: 'Minecraft', sans-serif;
+                letter-spacing: 1px;
+            }
+
+            /* Pixel-perfect button styling */
+            button {
+                image-rendering: pixelated;
+            }
+            
+            @keyframes ping-slow {
+                0%, 100% { transform: scale(1); opacity: 0.75; }
+                50% { transform: scale(1.5); opacity: 0; }
+            }
+
+            .animate-ping-slow {
+                animation: ping-slow 3s ease-in-out infinite;
+            }
+
+            .animate-pulse-slow {
+                animation: pulse 3s ease-in-out infinite;
+            }
+
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.5; }
+            }
         }
     </style>
 </head>
@@ -454,79 +486,85 @@
             <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-8 rounded-full"></div>
             
             <p class="text-lg text-gray-300/90 max-w-3xl mx-auto leading-relaxed">
-                Join our low-latency gaming servers with premium hardware and active communities
+                 Smooth gameplay. Strong community. No compromise.
             </p>
         </div>
         
         <!-- Server cards grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Minecraft Server Card -->
-            <div class="relative server-card group">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="relative bg-gray-800/80 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="relative">
-                                <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-75"></div>
-                                <img src="https://via.placeholder.com/150/1DB954/FFFFFF?text=MC" alt="Minecraft" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
-                            </div>
+        <!-- Minecraft Server Card -->
+        <div class="relative server-card group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-lime-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative bg-gray-800/90 rounded-xl p-6 h-full border-2 border-green-700/30 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-green-500 to-lime-400 rounded-xl blur opacity-75 animate-pulse-slow"></div>
+                            <img src="https://via.placeholder.com/150/62B957/FFFFFF?text=MC" alt="Minecraft" class="relative w-32 h-32 object-contain rounded-xl border-2 border-green-500/20">
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Skylands RP</h3>
-                                <!-- Status Indicator -->
-                                <template x-if="servers.minecraft.status === 'online'">
-                                    <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                                        </span>
-                                        Online
-                                    </div>
-                                </template>
-                                <template x-if="servers.minecraft.status === 'offline'">
-                                    <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                        </span>
-                                        Offline
-                                    </div>
-                                </template>
-                                <template x-if="servers.minecraft.status === 'maintenance'">
-                                    <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
-                                        <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                                        </span>
-                                        Maintenance
-                                    </div>
-                                </template>
-                            </div>
-                            <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
-                                Immersive roleplay server with custom plugins, economy system, and regular events. Join our growing community of builders and storytellers.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.20.1</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Premium Hosted</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">50ms Ping</span>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button @click="openModal('minecraft')" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
-                                    <span class="relative z-10 flex items-center">
-                                        <i class="fas fa-plug mr-2"></i> Join Now
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-2xl font-bold text-white mr-4 tracking-tight font-minecraft">Minehub RP</h3>
+                            <!-- Status Indicator -->
+                            <template x-if="servers.minecraft.status === 'online'">
+                                <div class="flex items-center bg-green-900/30 text-green-400 text-xs px-3 py-1 rounded-full online-pulse">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                                     </span>
-                                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                                </button>
-                                <button @click="openInfoModal('minecraft')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
-                                    <span class="relative z-10 flex items-center">
-                                        <i class="fas fa-info-circle mr-2"></i> Server Info
+                                    Online
+                                </div>
+                            </template>
+                            <template x-if="servers.minecraft.status === 'offline'">
+                                <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                                     </span>
-                                </button>
-                            </div>
+                                    Offline
+                                </div>
+                            </template>
+                            <template x-if="servers.minecraft.status === 'maintenance'">
+                                <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
+                                    <span class="relative flex h-2 w-2 mr-2">
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                    </span>
+                                    Maintenance
+                                </div>
+                            </template>
+                        </div>
+                        <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
+                            Immersive roleplay server with custom plugins, economy system, and regular events. Join our growing community of builders and storytellers.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-green-900/30 text-green-300 text-xs px-3 py-1.5 rounded-full border border-green-700/50">1.16.5</span>
+                            <span class="bg-green-900/30 text-green-300 text-xs px-3 py-1.5 rounded-full border border-green-700/50">Java/Forge</span>
+                            <span class="bg-green-900/30 text-green-300 text-xs px-3 py-1.5 rounded-full border border-green-700/50">Whitelist</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button @click="openModal('minecraft')" class="relative overflow-hidden group bg-gradient-to-br from-green-600 to-lime-500 hover:from-green-700 hover:to-lime-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/30 flex items-center justify-center">
+                                <span class="relative z-10 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M4 10V20H10V14H14V20H20V10H4Z"/>
+                                        <path d="M12 2L4 10H12V2Z"/>
+                                    </svg>
+                                    Join Now
+                                </span>
+                                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                            </button>
+                            <button @click="openInfoModal('minecraft')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
+                                <span class="relative z-10 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M11 9H13V7H11V9M12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2M11 17H13V11H11V17Z"/>
+                                    </svg>
+                                    Server Info
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+        </div>            
             <!-- DayZ Server Card -->
             <div class="relative server-card group">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -540,15 +578,15 @@
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Survival Chronicles</h3>
+                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">Deadland Survival</h3>
                                 <!-- Status Indicator -->
-                                <template x-if="servers.dayz.status === 'online'">
-                                    <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
+                                <template x-if="servers.dayz.status === 'coming-soon'">
+                                    <div class="flex items-center bg-amber-900/30 text-amber-300 text-xs px-3 py-1 rounded-full animate-pulse-slow">
                                         <span class="relative flex h-2 w-2 mr-2">
-                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                            <span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 animate-ping-slow"></span>
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                                         </span>
-                                        Online
+                                        Coming Soon
                                     </div>
                                 </template>
                                 <template x-if="servers.dayz.status === 'offline'">
@@ -572,9 +610,8 @@
                                 Hardcore survival experience with custom lore, factions, and economy. Currently in development - join our Discord to vote on features!
                             </p>
                             <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.23</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Version: 1.28</span>
                                 <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Custom Modpack</span>
-                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">35ms Ping</span>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
@@ -608,9 +645,9 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <img src="https://via.placeholder.com/150/F97316/FFFFFF?text=Rust" alt="Rust" class="relative w-16 h-16 mx-auto object-contain">
                     </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Rust Origins</h4>
+                    <h4 class="text-lg font-semibold text-white mb-3">Rust Reborn</h4>
                     <div class="flex justify-center gap-2">
-                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">Q4 2023</span>
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">2026</span>
                     </div>
                     <div class="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
                 </div>
@@ -621,9 +658,9 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <img src="https://via.placeholder.com/150/10B981/FFFFFF?text=FiveM" alt="FiveM" class="relative w-16 h-16 mx-auto object-contain">
                     </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Metro RP</h4>
+                    <h4 class="text-lg font-semibold text-white mb-3">USA Roleplay</h4>
                     <div class="flex justify-center gap-2">
-                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">2024</span>
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">TBD</span>
                     </div>
                     <div class="absolute top-2 right-2 w-3 h-3 bg-indigo-500 rounded-full animate-pulse"></div>
                 </div>
@@ -634,7 +671,7 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                         <img src="https://via.placeholder.com/150/EF4444/FFFFFF?text=Arma" alt="Arma Reforger" class="relative w-16 h-16 mx-auto object-contain">
                     </div>
-                    <h4 class="text-lg font-semibold text-white mb-3">Tactical Ops</h4>
+                    <h4 class="text-lg font-semibold text-white mb-3">Arma Life</h4>
                     <div class="flex justify-center gap-2">
                         <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">TBD</span>
                     </div>
@@ -692,7 +729,7 @@
                         <span x-text="activeServer.location"></span>
                         <span class="mx-2">•</span>
                         <i class="fas fa-tachometer-alt mr-2 text-indigo-400"></i>
-                        <span x-text="activeServer.ping"></span> avg ping
+                        <span x-text="activeServer.ping"></span> Avg ping (aprox 80ms)
                     </div>
                 </div>
                 
@@ -831,12 +868,11 @@ document.addEventListener('alpine:init', () => {
         servers: {
             minecraft: {
                 id: 'minecraft',
-                name: 'Skylands RP',
+                name: 'Minehub RP',
                 image: 'https://via.placeholder.com/150/1DB954/FFFFFF?text=MC',
-                ip: 'play.skylands-rp.com',
-                discord: 'https://discord.gg/skylands',
-                location: 'Chicago, IL',
-                ping: '35ms',
+                ip: 'minehub.games.usa-roleplay.org',
+                discord: 'https://discord.gg/WKxJdBZQdU',
+                location: 'Mexico',
                 status: 'online',
                 details: [
                     'Custom roleplay plugins',
@@ -854,13 +890,12 @@ document.addEventListener('alpine:init', () => {
             },
             dayz: {
                 id: 'dayz',
-                name: 'Survival Chronicles',
+                name: 'Deadland Survival',
                 image: 'https://via.placeholder.com/150/FBBF24/FFFFFF?text=DayZ',
-                ip: 'dayz.survival-chronicles.com',
-                discord: 'https://discord.gg/survival',
-                location: 'Dallas, TX',
-                ping: '28ms',
-                status: 'online',
+                ip: 'dayz.games.usa-roleplay.org',
+                discord: 'https://discord.gg/WKxJdBZQdU',
+                location: 'USA',
+                status: 'coming-soon',
                 details: [
                     'Custom survival mechanics',
                     'Faction-based gameplay',
@@ -871,7 +906,6 @@ document.addEventListener('alpine:init', () => {
                     'Weekly survival challenges',
                     'Player-run settlements',
                     'Custom map locations',
-                    'Monthly wipe events'
                 ],
                 rules: 'Hardcore survival experience with custom mechanics. Our staff team is available around the clock to ensure fair play and quick resolution of any issues that may arise.'
             }
