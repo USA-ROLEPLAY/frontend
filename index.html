@@ -6,210 +6,293 @@
     <title>USARoleplay</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap');
-        
-        :root {
-            --primary: #4f46e5;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#f0f9ff',
+                            '100': '#e0f2fe',
+                            '200': '#bae6fd',
+                            '300': '#7dd3fc',
+                            '400': '#38bdf8',
+                            '500': '#0ea5e9', // Blue
+                            '600': '#0284c7',
+                            '700': '#0369a1',
+                            '800': '#075985',
+                            '900': '#0c4a6e',
+                        },
+                        secondary: '#ef4444', // Red
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        usaRed: '#b22234',
+                        usaBlue: '#3c3b6e',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delay': 'float 6s ease-in-out infinite 1s',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'text-gradient': 'textGradient 8s ease infinite',
+                        'border-glow': 'borderGlow 3s ease infinite alternate',
+                        'gradient-x': 'gradientX 8s ease infinite',
+                        'gradient-xy': 'gradientXY 8s ease infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'tilt': 'tilt 10s ease-in-out infinite',
+                        'star-pulse': 'starPulse 2s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        textGradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        borderGlow: {
+                            '0%': { 'box-shadow': '0 0 5px rgba(59, 130, 246, 0.5)', 'border-color': 'rgba(59, 130, 246, 0.5)' },
+                            '100%': { 'box-shadow': '0 0 20px rgba(59, 130, 246, 0.9)', 'border-color': 'rgba(59, 130, 246, 0.9)' },
+                        },
+                        gradientX: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        gradientXY: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        tilt: {
+                            '0%, 100%': { transform: 'rotate(-1deg)' },
+                            '50%': { transform: 'rotate(1deg)' },
+                        },
+                        starPulse: {
+                            '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.2)' },
+                        }
+                    }
+                }
+            }
         }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0f172a;
-            color: var(--light);
-            overflow-x: hidden;
-        }
-        
-        .title-font {
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .pixel-font {
-            font-family: 'Press Start 2P', cursive;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .server-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-float-delay {
-            animation: float 6s ease-in-out infinite 1s;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 1s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .glow {
-            text-shadow: 0 0 10px rgba(79, 70, 229, 0.7);
-        }
-        
-        .glow-hover:hover {
-            text-shadow: 0 0 15px rgba(79, 70, 229, 0.9);
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .typing-demo {
-            width: 22ch;
-            animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid;
-            font-family: monospace;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-        }
-            
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-white to-red-600 bg-[length:300%_300%] animate-text-gradient;
+            }
+            .gradient-border {
+                position: relative;
+                border-radius: 0.5rem;
+            }
+            .gradient-border::before {
+                content: "";
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                z-index: -1;
+                border-radius: 0.5rem;
+                background: linear-gradient(45deg, #0ea5e9, #ffffff, #ef4444);
+                background-size: 300% 300%;
+                animation: gradientXY 6s ease infinite;
+            }
+            .parallax-bg {
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .stars-pattern {
+                background-image: radial-gradient(white 1px, transparent 1px);
+                background-size: 20px 20px;
+                background-color: #0f172a; /* Dark background */
+            }
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen font-poppins bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 transition-opacity duration-500">
+        <div class="relative">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-red-600 animate-spin-slow flex items-center justify-center">
+                <div class="w-20 h-20 rounded-full bg-gray-900"></div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <img src="assets/logo.png" alt="Loading" class="h-12 animate-pulse">
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
+    <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-40 border-b border-blue-800 shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <img src="assets/logo.png" alt="USARoleplay Logo" class="h-8 w-auto mr-2">
-                        <span class="text-2xl font-bold title-font text-indigo-500">USARoleplay</span>
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <div class="relative">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-red-600 rounded-full blur opacity-75 animate-pulse-slow"></div>
+                            <img src="assets/logo.png" alt="USARoleplay Logo" class="relative h-10 w-auto">
+                        </div>
+                        <span class="text-2xl font-black font-orbitron text-gradient">USARoleplay</span>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50">Home</a>
-                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50">About</a>
-                        <a href="#servers" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50">Servers</a>
-                        <a href="#join" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-800/50">Join Us</a>
+                    <div class="ml-10 flex items-baseline space-x-2">
+                        <a href="#home" class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 group relative overflow-hidden">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-home mr-2 text-blue-400"></i> Home
+                            </span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </a>
+                        <a href="#about" class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 group relative overflow-hidden">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-info-circle mr-2 text-white"></i> About
+                            </span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </a>
+                        <a href="#servers" class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 group relative overflow-hidden">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-server mr-2 text-red-400"></i> Servers
+                            </span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </a>
+                        <a href="#join" class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 group relative overflow-hidden">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-users mr-2 text-white"></i> Community
+                            </span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </a>
                     </div>
                 </div>
-                <div class="flex space-x-4">
-                    <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center">
-                        <i class="fab fa-discord mr-2"></i> Discord
-                    </a>
-                    <div class="md:hidden">
-                        <button type="button" class="text-gray-300 hover:text-white focus:outline-none" id="mobile-menu-button">
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+        <div class="flex space-x-4">
+            <!-- Join Discord Button -->
+            <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center shadow-lg hover:shadow-blue-500/30 transform hover:scale-105">
+                <span class="relative z-10 flex items-center">
+                    <i class="fab fa-discord mr-2"></i> Join Discord
+                </span>
+                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            </a>
+        
+            <!-- Support the Project Button -->
+            <a href="/support" class="relative overflow-hidden group bg-gradient-to-br from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center shadow-lg hover:shadow-green-500/30 transform hover:scale-105">
+                <span class="relative z-10 flex items-center">
+                    <i class="fas fa-heart mr-2"></i> Support the Project!
+                </span>
+                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            </a>
+        
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button type="button" class="text-gray-300 hover:text-white focus:outline-none transition-transform duration-300 hover:rotate-180" id="mobile-menu-button">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
+
         
         <!-- Mobile menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
+        <div class="md:hidden hidden origin-top" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#servers" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Servers</a>
-                <a href="#join" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Join Us</a>
+                <a href="#home" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 flex items-center">
+                    <i class="fas fa-home mr-3 text-blue-400 w-5 text-center"></i> Home
+                </a>
+                <a href="#about" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-3 text-white w-5 text-center"></i> About
+                </a>
+                <a href="#servers" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 flex items-center">
+                    <i class="fas fa-server mr-3 text-red-400 w-5 text-center"></i> Servers
+                </a>
+                <a href="#join" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 flex items-center">
+                    <i class="fas fa-users mr-3 text-white w-5 text-center"></i> Community
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Particle background -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        
+        <!-- Animated gradient background -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full opacity-20">
-                <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-indigo-500 filter blur-3xl opacity-70 animate-float"></div>
-                <div class="absolute top-1/3 right-1/3 w-40 h-40 rounded-full bg-emerald-500 filter blur-3xl opacity-70 animate-float-delay"></div>
-                <div class="absolute bottom-1/4 right-1/4 w-28 h-28 rounded-full bg-purple-500 filter blur-3xl opacity-70 animate-float"></div>
+                <div class="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-blue-500 blur-3xl opacity-70 animate-float"></div>
+                <div class="absolute top-1/3 right-1/3 w-48 h-48 rounded-full bg-white blur-3xl opacity-50 animate-float-delay"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-36 h-36 rounded-full bg-red-500 blur-3xl opacity-70 animate-float"></div>
+                <div class="absolute bottom-1/3 left-1/3 w-32 h-32 rounded-full bg-blue-400 blur-3xl opacity-70 animate-float-delay"></div>
+                <!-- Stars -->
+                <div class="absolute top-1/5 right-1/5 w-8 h-8 bg-white rounded-full animate-star-pulse"></div>
+                <div class="absolute top-1/3 left-1/5 w-6 h-6 bg-white rounded-full animate-star-pulse" style="animation-delay: 0.5s;"></div>
+                <div class="absolute bottom-1/4 left-1/4 w-5 h-5 bg-white rounded-full animate-star-pulse" style="animation-delay: 0.8s;"></div>
+                <div class="absolute top-1/6 right-1/6 w-7 h-7 bg-white rounded-full animate-star-pulse" style="animation-delay: 0.3s;"></div>
             </div>
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
             <div class="text-center">
-                <h1 class="text-5xl md:text-7xl font-bold title-font mb-6 text-white slide-in-left">
-                    <span class="glow">USARoleplay</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto slide-in-right">
-                    Free community-driven gaming servers self-hosted by our community gamers
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#servers" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 pulse">
-                        <i class="fas fa-server mr-2"></i> Our Servers
-                    </a>
-                    <a href="https://discord.gg/" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105">
-                        <i class="fab fa-discord mr-2"></i> Join Discord
-                    </a>
+                <div class="mb-8 animate-slide-up">
+                    <span class="inline-block bg-blue-900/30 text-white text-sm font-semibold px-4 py-2 rounded-full border border-blue-700/50 shadow-lg">
+                        <i class="fas fa-star mr-2 animate-pulse-slow text-yellow-300"></i> Community-Coded. Freely Played. Roleplaying the American Way!
+                    </span>
                 </div>
-            </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-orbitron mb-6 text-white animate-slide-up" style="animation-delay: 0.2s;">
+                    <span class="text-gradient">USARoleplay</span>
+                </h1>          
+                <div class="relative inline-block max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                        A gaming community led by its members, united by the belief in <span class="text-blue-400 font-semibold">free, fair, and fun for everyone!</span> That’s why we self-host everything and strive to make most of it open source, that way everyone can contribute to a truly community-driven project!
+                    </p>
+                    <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse-slow"></div>
+                </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up mt-12" style="animation-delay: 0.6s;">
+        <a href="#servers" class="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/40 flex items-center">
+            <span class="relative z-10 flex items-center">
+            <i class="fas fa-gamepad mr-3 text-lg animate-pulse"></i> Explore Servers
+            </span>
+            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+        </a>
+
+        <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-[#5865F2] to-[#4752C4] hover:from-[#4752C4] hover:to-[#3B40A0] text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#5865F2]/40 flex items-center">
+            <span class="relative z-10 flex items-center">
+            <i class="fab fa-discord mr-3 text-lg animate-pulse"></i> Join Discord
+            </span>
+            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+        </a>
         </div>
+
         
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
-            <a href="#about" class="text-gray-400 hover:text-white animate-bounce">
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
@@ -217,349 +300,1115 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-900/50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold title-font mb-4 text-white">
-                    <span class="glow-hover">About Our Community</span>
-                </h2>
-                <div class="w-20 h-1 bg-indigo-500 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Who we are and what we stand for
-                </p>
+<!-- Enhanced Who Are We? Section -->
+<section class="relative py-28 bg-gray-900 overflow-hidden isolate">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-20 right-0 w-72 h-72 bg-indigo-500 rounded-full filter blur-[100px] opacity-10 animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500 rounded-full filter blur-[100px] opacity-10 animate-float-delay"></div>
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-500 rounded-full filter blur-[120px] opacity-5 animate-float-xy"></div>
+  </div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+    <!-- Section header with enhanced animations -->
+    <div class="text-center mb-24 animate-fade-in-up">
+      <div class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-2 rounded-full border border-gray-700/50 mb-6 shadow-lg shadow-indigo-500/10 transition-all duration-500 hover:shadow-indigo-500/20">
+        <div class="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse-fast"></div>
+        <span class="text-sm font-semibold tracking-wider text-amber-300/90 uppercase">WHO WE ARE</span>
+      </div>
+      
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 animate-text-shimmer">WHO ARE WE?</span>
+      </h2>
+      
+      <div class="w-24 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full animate-scale-x"></div>
+      
+      <p class="text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed text-justify">
+        We are a team of passionate creators, gamers, and developers committed to crafting immersive and unforgettable multiplayer experiences. Our mission is to provide a safe, fair, and thriving community where everyone feels welcome and empowered to create amazing memories together.
+      </p>
+    </div>
+
+    <!-- Feature cards grid with staggered animations -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-indigo-400/30 hover:shadow-indigo-500/10">
+        <div class="w-16 h-16 bg-indigo-900/20 rounded-xl flex items-center justify-center text-indigo-400 text-3xl mb-5 group-hover:bg-indigo-900/40 group-hover:text-indigo-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Active Moderation</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          24/7 staff coverage to ensure fair play and quick response to any issues. Our professional team maintains a welcoming environment for all players.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-emerald-400/30 hover:shadow-emerald-500/10" style="animation-delay: 100ms">
+        <div class="w-16 h-16 bg-emerald-900/20 rounded-xl flex items-center justify-center text-emerald-400 text-3xl mb-5 group-hover:bg-emerald-900/40 group-hover:text-emerald-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Weekly Events</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Regular tournaments, building contests, and special events with exciting prizes. New challenges await almost every day to keep gameplay fresh.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-purple-400/30 hover:shadow-purple-500/10" style="animation-delay: 200ms">
+        <div class="w-16 h-16 bg-purple-900/20 rounded-xl flex items-center justify-center text-purple-400 text-3xl mb-5 group-hover:bg-purple-900/40 group-hover:text-purple-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Custom Plugins</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Unique gameplay mechanics developed specifically for our community. We implement regular updates based on player feedback and suggestions.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-amber-400/30 hover:shadow-amber-500/10" style="animation-delay: 300ms">
+        <div class="w-16 h-16 bg-amber-900/20 rounded-xl flex items-center justify-center text-amber-400 text-3xl mb-5 group-hover:bg-amber-900/40 group-hover:text-amber-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">99.9% Uptime</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Enterprise-grade hosting with automatic backups and DDoS protection. Our servers are monitored 24/7 to ensure maximum availability.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-pink-400/30 hover:shadow-pink-500/10" style="animation-delay: 400ms">
+        <div class="w-16 h-16 bg-pink-900/20 rounded-xl flex items-center justify-center text-pink-400 text-3xl mb-5 group-hover:bg-pink-900/40 group-hover:text-pink-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">New Player Support</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Dedicated mentors, starter kits, and comprehensive guides to help newcomers. We ensure every player gets the perfect introduction to our world.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-blue-400/30 hover:shadow-blue-500/10" style="animation-delay: 500ms">
+        <div class="w-16 h-16 bg-blue-900/20 rounded-xl flex items-center justify-center text-blue-400 text-3xl mb-5 group-hover:bg-blue-900/40 group-hover:text-blue-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Performance Optimized</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Regular server maintenance and optimization ensures smooth gameplay even with 100+ players online simultaneously.
+        </p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-red-400/30 hover:shadow-red-500/10" style="animation-delay: 600ms">
+        <div class="w-16 h-16 bg-red-900/20 rounded-xl flex items-center justify-center text-red-400 text-3xl mb-5 group-hover:bg-red-900/40 group-hover:text-red-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Passionate Staff</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Our team genuinely cares about the community. Many staff members began as players, bringing authentic understanding to their roles.
+        </p>
+      </div>
+        
+      <!-- Card 8 - Discord Community -->
+      <div class="bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-2xl p-7 border border-gray-700/30 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group animate-fade-in-up hover:border-indigo-400/30 hover:shadow-indigo-500/10" style="animation-delay: 700ms">
+        <div class="w-16 h-16 bg-indigo-900/20 rounded-xl flex items-center justify-center text-indigo-400 text-3xl mb-5 group-hover:bg-indigo-900/40 group-hover:text-indigo-300 transition-all duration-300 group-hover:rotate-6">
+          <i class="fab fa-discord"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Vibrant Discord</h3>
+        <p class="text-gray-300/90 text-justify leading-relaxed">
+          Join our active Discord community with thousands of members! Get instant support, participate in events, and connect with other players 24/7.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Game Servers Section -->
+<section id="game-servers" class="py-24 bg-gray-900/80 backdrop-blur-sm relative overflow-hidden" x-data="gameServers">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-20 right-1/4 w-72 h-72 bg-red-500 rounded-full filter blur-[100px] opacity-10 animate-[float_8s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-[100px] opacity-10 animate-[float2_10s_ease-in-out_infinite]"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5">
+            <svg viewBox="0 0 200 100" class="w-full h-full">
+                <pattern id="stars" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2)">
+                    <polygon points="10,0 4,20 20,8 0,8 16,20" fill="white"/>
+                </pattern>
+                <rect width="200" height="100" fill="url(#stars)" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section header with patriotic theme -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-2 rounded-full border border-gray-700/50 mb-6 shadow-lg shadow-red-500/10 transition-all duration-500 hover:shadow-blue-500/20">
+                <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                <span class="text-sm font-semibold tracking-wider text-white/90 uppercase">AMERICAN GAMING NETWORK</span>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 card-hover fade-in">
-                    <div class="text-indigo-500 text-4xl mb-4">
-                        <i class="fas fa-users"></i>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+                <span class="relative inline-block">
+                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-full"></span>
+                    <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-blue-400">Patriot Game Servers</span>
+                </span>
+            </h2>
+            
+            <div class="w-24 h-1.5 bg-gradient-to-r from-red-500 via-white to-blue-500 mx-auto mb-8 rounded-full"></div>
+            
+            <p class="text-lg text-gray-300/90 max-w-3xl mx-auto leading-relaxed">
+                Join our high-performance gaming servers hosted on American soil with low ping and freedom-focused communities
+            </p>
+        </div>
+        
+        <!-- Server cards grid with star-spangled design -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Minecraft Server Card -->
+            <div class="relative server-card group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-white to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="relative">
+                                <div class="absolute -inset-1.5 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-75"></div>
+                                <img src="https://via.placeholder.com/150/1DB954/FFFFFF?text=MC" alt="Minecraft" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-4">
+                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">LibertyCraft</h3>
+                                <!-- Status Indicator -->
+                                <template x-if="servers.minecraft.status === 'online'">
+                                    <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                        </span>
+                                        Online
+                                    </div>
+                                </template>
+                                <template x-if="servers.minecraft.status === 'offline'">
+                                    <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                        </span>
+                                        Offline
+                                    </div>
+                                </template>
+                                <template x-if="servers.minecraft.status === 'maintenance'">
+                                    <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                        </span>
+                                        Maintenance
+                                    </div>
+                                </template>
+                            </div>
+                            <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
+                                American-themed Minecraft server with custom monuments, freedom-focused gameplay, and patriotic events.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.20.1</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">USA Hosted</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">50ms Ping</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button @click="openModal('minecraft')" class="relative overflow-hidden group bg-gradient-to-br from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/30 flex items-center justify-center">
+                                    <span class="relative z-10 flex items-center">
+                                        <i class="fas fa-flag-usa mr-2"></i> Join Now
+                                    </span>
+                                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                                </button>
+                                <button @click="openInfoModal('minecraft')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
+                                    <span class="relative z-10 flex items-center">
+                                        <i class="fas fa-info-circle mr-2"></i> Server Info
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Community First</h3>
-                    <p class="text-gray-300">
-                        We're a passionate group of gamers who believe in creating free, high-quality gaming experiences for everyone. Our servers are community-funded and maintained by volunteers.
-                    </p>
                 </div>
-                
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 card-hover fade-in" style="animation-delay: 0.2s;">
-                    <div class="text-emerald-500 text-4xl mb-4">
-                        <i class="fas fa-server"></i>
+            </div>
+            
+            <!-- DayZ Server Card -->
+            <div class="relative server-card group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-white to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-6 h-full backdrop-blur-sm border border-gray-700/30">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="relative">
+                                <div class="absolute -inset-1.5 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-75"></div>
+                                <img src="https://via.placeholder.com/150/FBBF24/FFFFFF?text=DayZ" alt="DayZ" class="relative w-32 h-32 object-contain rounded-xl border-2 border-white/10">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-4">
+                                <h3 class="text-2xl font-bold text-white mr-4 tracking-tight">FreedomZ</h3>
+                                <!-- Status Indicator -->
+                                <template x-if="servers.dayz.status === 'online'">
+                                    <div class="flex items-center bg-emerald-900/30 text-emerald-400 text-xs px-3 py-1 rounded-full online-pulse">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                        </span>
+                                        Online
+                                    </div>
+                                </template>
+                                <template x-if="servers.dayz.status === 'offline'">
+                                    <div class="flex items-center bg-red-900/30 text-red-400 text-xs px-3 py-1 rounded-full">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                        </span>
+                                        Offline
+                                    </div>
+                                </template>
+                                <template x-if="servers.dayz.status === 'maintenance'">
+                                    <div class="flex items-center bg-amber-900/30 text-amber-400 text-xs px-3 py-1 rounded-full">
+                                        <span class="relative flex h-2 w-2 mr-2">
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                        </span>
+                                        Maintenance
+                                    </div>
+                                </template>
+                            </div>
+                            <p class="text-gray-300/90 mb-4 text-justify leading-relaxed">
+                                Post-apocalyptic survival set in rural America with custom military bases and patriotic factions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">1.23</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">Texas Hosted</span>
+                                <span class="bg-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">35ms Ping</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://discord.gg/example" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center justify-center">
+                                    <span class="relative z-10 flex items-center">
+                                        <i class="fab fa-discord mr-2"></i> Join Discord
+                                    </span>
+                                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                                </a>
+                                <button @click="openInfoModal('dayz')" class="relative overflow-hidden group bg-gray-700/50 hover:bg-gray-600/50 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center">
+                                    <span class="relative z-10 flex items-center">
+                                        <i class="fas fa-info-circle mr-2"></i> Server Info
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Free to Play</h3>
-                    <p class="text-gray-300">
-                        All our servers are completely free to access. We don't believe in pay-to-win mechanics. Our goal is to provide fair, enjoyable gameplay for all skill levels.
-                    </p>
-                </div>
-                
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 card-hover fade-in" style="animation-delay: 0.4s;">
-                    <div class="text-purple-500 text-4xl mb-4">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Growing Together</h3>
-                    <p class="text-gray-300">
-                        Starting with Minecraft, we're expanding to DayZ, Rust, and more. Our community helps decide which games we support next through polls and discussions.
-                    </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Servers Section -->
-    <section id="servers" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold title-font mb-4 text-white">
-                    <span class="glow-hover">Our Game Servers</span>
-                </h2>
-                <div class="w-20 h-1 bg-indigo-500 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Currently available and coming soon
-                </p>
+        
+        <!-- Upcoming Games Section -->
+        <div class="mt-20 text-center">
+            <h3 class="text-3xl font-bold text-white mb-10 tracking-tight">
+                <span class="relative inline-block">
+                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-full"></span>
+                    <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-blue-400">Coming Soon</span>
+                </span>
+            </h3>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+                <!-- Rust -->
+                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-red-400/30">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <img src="https://via.placeholder.com/150/F97316/FFFFFF?text=Rust" alt="Rust" class="relative w-16 h-16 mx-auto object-contain">
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Freedom Rust</h4>
+                    <div class="flex justify-center gap-2">
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">Q4 2023</span>
+                    </div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- FiveM -->
+                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-400/30">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <img src="https://via.placeholder.com/150/10B981/FFFFFF?text=FiveM" alt="FiveM" class="relative w-16 h-16 mx-auto object-contain">
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Patriot RP</h4>
+                    <div class="flex justify-center gap-2">
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- Arma Reforger -->
+                <div class="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 rounded-xl p-5 border border-gray-700/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-white/30">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <img src="https://via.placeholder.com/150/EF4444/FFFFFF?text=Arma" alt="Arma Reforger" class="relative w-16 h-16 mx-auto object-contain">
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Eagle Ops</h4>
+                    <div class="flex justify-center gap-2">
+                        <span class="text-xs bg-gray-700/50 text-gray-400 px-3 py-1 rounded-full">TBD</span>
+                    </div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Minecraft Server -->
-                <div class="server-card rounded-xl overflow-hidden fade-in">
-                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-indigo-900/50 flex items-center justify-center">
-                            <i class="fab fa-microsoft text-6xl text-white"></i>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+            <div class="mt-16">
+                <a href="https://discord.gg/example" target="_blank" class="inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 rounded-full border border-gray-700/50 shadow-lg shadow-red-500/10 transition-all duration-500 hover:shadow-blue-500/20 group">
+                    <i class="fas fa-star-spangled text-red-500 mr-3 group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-white font-medium">Suggest a game for our American network</span>
+                    <i class="fas fa-arrow-right text-white ml-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Server Connect Modal -->
+        <div x-show="activeModal === 'connect'" x-transition:enter="transition ease-out duration-300" 
+            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" 
+            x-transition:leave-end="opacity-0 scale-95" 
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" x-cloak>
+            <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl max-w-md w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
+                <!-- Close button -->
+                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-red-500/30 flex items-center justify-center transition-all close-btn">
+                    <i class="fas fa-times text-gray-400 hover:text-white"></i>
+                </button>
+                
+                <div class="text-center mb-6">
+                    <div class="relative mx-auto w-20 h-20 mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500 rounded-full blur opacity-75"></div>
+                        <img :src="activeServer.image" :alt="activeServer.name" class="relative w-full h-full object-contain rounded-full border-2 border-white/10">
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white">Minecraft - Minehub</h3>
-                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Online</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">Join <span x-text="activeServer.name"></span></h3>
+                    <p class="text-gray-400">American-hosted with low ping for all US players</p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-4 mb-6 border border-gray-700/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-400">Server IP:</span>
+                        <button @click="copyToClipboard(activeServer.ip)" class="text-xs bg-gray-700/50 hover:bg-gray-600/50 text-blue-400 px-2 py-1 rounded transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copy
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-white">
+                            <i class="fas fa-server"></i>
                         </div>
-                        <p class="text-gray-300 mb-4">
-                            Immersive experience with custom plugins, economy, and minigames. While still in active development, this server is perfect for survivalists and world-builders.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Survival</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Roleplay</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Economy</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-sm text-gray-400">Players:</span>
-                                <span class="text-white ml-1">24/50</span>
-                            </div>
-                            <a href="minecraft.html" class="text-indigo-400 hover:text-indigo-300 text-sm font-medium">Server Info →</a>
-                        </div>
+                        <input type="text" :id="'server-ip-'+activeServer.id" readonly :value="activeServer.ip" class="bg-gray-700/50 border border-gray-600/50 text-white text-sm rounded-lg block w-full pl-10 pr-3 py-3 font-mono">
+                    </div>
+                    <div class="mt-3 flex items-center text-sm text-gray-400">
+                        <i class="fas fa-map-marker-alt mr-2 text-red-400"></i>
+                        <span x-text="activeServer.location"></span>
+                        <span class="mx-2">•</span>
+                        <i class="fas fa-tachometer-alt mr-2 text-blue-400"></i>
+                        <span x-text="activeServer.ping"></span> avg ping
                     </div>
                 </div>
                 
-                <!-- DayZ Server (Coming Soon) -->
-                <div class="server-card rounded-xl overflow-hidden fade-in" style="animation-delay: 0.2s;">
-                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-gray-900/70 flex items-center justify-center">
-                            <i class="fas fa-radiation text-6xl text-white"></i>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white">DayZ Survival</h3>
-                            <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">Coming Soon</span>
-                        </div>
-                        <p class="text-gray-300 mb-4">
-                            Hardcore survival experience with realistic mechanics. Form alliances or go solo in this post-apocalyptic world.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Survival</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">PVP</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Hardcore</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-sm text-gray-400">Status:</span>
-                                <span class="text-white ml-1">In Development</span>
-                            </div>
-                            <a href="#" class="text-indigo-400 hover:text-indigo-300 text-sm font-medium">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Rust Server (Coming Soon) -->
-                <div class="server-card rounded-xl overflow-hidden fade-in" style="animation-delay: 0.4s;">
-                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1560253025-5d2a0c5b3076?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-orange-900/70 flex items-center justify-center">
-                            <i class="fas fa-fire text-6xl text-white"></i>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white">Rust Factions</h3>
-                            <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">Coming Soon</span>
-                        </div>
-                        <p class="text-gray-300 mb-4">
-                            Build, raid, and survive in our upcoming Rust server with custom faction systems and balanced gameplay.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Base Building</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">PVP</span>
-                            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Factions</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-sm text-gray-400">Status:</span>
-                                <span class="text-white ml-1">Planned</span>
-                            </div>
-                            <a href="#" class="text-indigo-400 hover:text-indigo-300 text-sm font-medium">Learn More →</a>
-                        </div>
-                    </div>
+                <div class="space-y-3">
+                    <a :href="activeServer.discord" target="_blank" class="block w-full bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
+                        <i class="fab fa-discord mr-2"></i> Join Our Discord
+                    </a>
+                    <button @click="openInfoModal(activeServer.id)" class="block w-full bg-gray-700/50 hover:bg-gray-600/50 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center">
+                        <i class="fas fa-info-circle mr-2"></i> Server Information
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Join Section -->
-    <section id="join" class="py-20 bg-gray-900/50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold title-font mb-4 text-white">
-                    <span class="glow-hover">Join Our Community</span>
-                </h2>
-                <div class="w-20 h-1 bg-indigo-500 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Connect with us and start playing!
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
-                        <h3 class="text-2xl font-bold text-white mb-6">Why Join USARoleplay?</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="h-5 w-5 bg-indigo-500 rounded-full flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="ml-3 text-gray-300">Friendly, mature community focused on immersive gameplay</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="h-5 w-5 bg-indigo-500 rounded-full flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="ml-3 text-gray-300">No pay-to-win mechanics - all players have equal opportunities</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="h-5 w-5 bg-indigo-500 rounded-full flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="ml-3 text-gray-300">Active staff and community events</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div class="h-5 w-5 bg-indigo-500 rounded-full flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="ml-3 text-gray-300">Help shape our future by voting on new games and features</p>
-                            </li>
+        <!-- Server Info Modal -->
+        <div x-show="activeModal === 'info'" x-transition:enter="transition ease-out duration-300" 
+            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" 
+            x-transition:leave-end="opacity-0 scale-95" 
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" x-cloak>
+            <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl max-w-2xl w-full p-8 border border-gray-700/50 shadow-2xl" @click.outside="closeModal">
+                <!-- Close button -->
+                <button @click="closeModal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-700/50 hover:bg-red-500/30 flex items-center justify-center transition-all close-btn">
+                    <i class="fas fa-times text-gray-400 hover:text-white"></i>
+                </button>
+                
+                <div class="flex items-center mb-6">
+                    <div class="relative mr-4">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-xl blur opacity-50"></div>
+                        <img :src="activeServer.image" :alt="activeServer.name" class="relative w-16 h-16 rounded-xl border-2 border-white/10">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white" x-text="activeServer.name"></h3>
+                        <div class="flex items-center mt-1">
+                            <template x-if="activeServer.status === 'online'">
+                                <span class="flex h-2 w-2 mr-2">
+                                    <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                            </template>
+                            <template x-if="activeServer.status === 'offline'">
+                                <span class="flex h-2 w-2 mr-2">
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                </span>
+                            </template>
+                            <template x-if="activeServer.status === 'maintenance'">
+                                <span class="flex h-2 w-2 mr-2">
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                                </span>
+                            </template>
+                            <span class="text-sm" 
+                                  :class="{
+                                      'text-emerald-400': activeServer.status === 'online',
+                                      'text-red-400': activeServer.status === 'offline',
+                                      'text-amber-400': activeServer.status === 'maintenance'
+                                  }" 
+                                  x-text="activeServer.status === 'online' ? 'Online - Hosted in ' + activeServer.location : (activeServer.status === 'offline' ? 'Offline' : 'Under Maintenance')">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
+                            <i class="fas fa-flag-usa text-red-400 mr-2"></i> American Features
+                        </h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <template x-for="detail in activeServer.details">
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-400 mr-2 mt-1 text-xs"></i>
+                                    <span x-text="detail"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
+                            <i class="fas fa-calendar-star text-blue-400 mr-2"></i> Patriotic Events
+                        </h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <template x-for="feature in activeServer.features">
+                                <li class="flex items-start">
+                                    <i class="fas fa-fire text-red-400 mr-2 mt-1 text-xs"></i>
+                                    <span x-text="feature"></span>
+                                </li>
+                            </template>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="fade-in" style="animation-delay: 0.2s;">
-                    <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
-                        <h3 class="text-2xl font-bold text-white mb-6">Get Connected</h3>
-                        <div class="space-y-6">
-                            <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="flex items-center p-4 bg-indigo-900/50 hover:bg-indigo-900/70 rounded-lg transition-all duration-300 border border-indigo-900/30">
-                                <div class="bg-indigo-600 p-3 rounded-lg mr-4">
-                                    <i class="fab fa-discord text-white text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Discord Community</h4>
-                                    <p class="text-gray-300 text-sm">Join our active Discord community</p>
-                                </div>
-                                <div class="ml-auto text-indigo-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </a>
-                            
-                            <a href="https://github.com/USA-ROLEPLAY" target="_blank" class="flex items-center p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 border border-gray-700">
-                                <div class="bg-gray-700 p-3 rounded-lg mr-4">
-                                    <i class="fab fa-github text-white text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">GitHub Organization</h4>
-                                    <p class="text-gray-300 text-sm">View our open-source projects</p>
-                                </div>
-                                <div class="ml-auto text-gray-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </a>
-                            
-                            <a href="#" class="flex items-center p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 border border-gray-700">
-                                <div class="bg-blue-600 p-3 rounded-lg mr-4">
-                                    <i class="fas fa-book text-white text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Server Documentation</h4>
-                                    <p class="text-gray-300 text-sm">Learn about our server rules, features, and guides</p>
-                                </div>
-                                <div class="ml-auto text-gray-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </a>
+                <div class="bg-gray-800/50 rounded-xl p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-white mb-3 flex items-center">
+                        <i class="fas fa-balance-scale text-white mr-2"></i> Freedom Rules
+                    </h4>
+                    <p class="text-gray-300 mb-4" x-text="activeServer.rules"></p>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+                            <div class="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-sm text-gray-300">US-Based Staff</span>
                         </div>
+                        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-sm text-gray-300">24/7 Support</span>
+                        </div>
+                        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+                            <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-sm text-gray-300">Fair Play</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button @click="openModal(activeServer.id)" class="flex-1 bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-flag-usa mr-2"></i> Join Server
+                    </button>
+                    <a :href="activeServer.discord" target="_blank" class="flex-1 bg-gray-700/50 hover:bg-gray-600/50 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center">
+                        <i class="fab fa-discord mr-2"></i> Community
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('gameServers', () => ({
+        activeModal: null,
+        activeServer: null,
+        
+        // Server configuration - now with patriotic American details
+        servers: {
+            minecraft: {
+                id: 'minecraft',
+                name: 'LibertyCraft',
+                image: 'https://via.placeholder.com/150/1DB954/FFFFFF?text=MC',
+                ip: 'play.libertycraft.us',
+                discord: 'https://discord.gg/libertycraft',
+                location: 'Chicago, IL',
+                ping: '35ms',
+                status: 'online',
+                details: [
+                    'American-themed monuments and builds',
+                    '4th of July special events',
+                    'US Constitution-inspired rules',
+                    '50-state exploration map'
+                ],
+                features: [
+                    'Weekly Freedom Fridays',
+                    'Founding Father RP Events',
+                    'State vs State competitions',
+                    'Patriotic build contests'
+                ],
+                rules: 'Our server celebrates American values with fair play for all. Our all-American staff team ensures quick response to any issues while maintaining a fun, freedom-focused environment.'
+            },
+            dayz: {
+                id: 'dayz',
+                name: 'FreedomZ Survival',
+                image: 'https://via.placeholder.com/150/FBBF24/FFFFFF?text=DayZ',
+                ip: 'dayz.freedomnetwork.us',
+                discord: 'https://discord.gg/freedomz',
+                location: 'Dallas, TX',
+                ping: '28ms',
+                status: 'online',
+                details: [
+                    'American rural and urban maps',
+                    'Custom military bases',
+                    'Patriot faction system',
+                    'US-themed loot and items'
+                ],
+                features: [
+                    'Weekly Liberty Raids',
+                    'Revolutionary War reenactments',
+                    'State Militia system',
+                    'American holiday specials'
+                ],
+                rules: 'Hardcore survival with American values. Our Texan-hosted server provides low ping coast-to-coast with US-based staff available around the clock to ensure fair play.'
+            }
+        },
+        
+        openModal(serverId) {
+            this.activeServer = this.servers[serverId];
+            this.activeModal = 'connect';
+        },
+        
+        openInfoModal(serverId) {
+            this.activeServer = this.servers[serverId];
+            this.activeModal = 'info';
+        },
+        
+        closeModal() {
+            this.activeModal = null;
+            this.activeServer = null;
+        },
+        
+        copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show a toast notification with patriotic theme
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-4 right-4 bg-gradient-to-r from-red-500 to-blue-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-up flex items-center';
+                toast.innerHTML = '<i class="fas fa-flag-usa mr-2"></i> Copied to clipboard!';
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add('animate-fade-out');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    }));
+});
+</script>
+
+    <!-- Community Section -->
+    <section id="join" class="py-24 bg-gray-900/80 backdrop-blur-sm relative overflow-hidden">
+        <div class="absolute -top-20 right-1/4 w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 animate-fade-in">
+                <div class="inline-flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700 mb-6">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
+                    <span class="text-sm font-medium text-purple-400">JOIN US</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black font-orbitron mb-6 text-white">
+                    <span class="text-gradient">Our Community</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Become part of our growing family of passionate gamers
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 animate-slide-in-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-400 text-xl mr-4">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Discord Server</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Join our active Discord community with 500+ members. Get server updates, participate in events, and connect with other players.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+                            <i class="fas fa-microphone text-blue-400 text-xs mr-2"></i>
+                            <span class="text-xs text-gray-300">Voice Channels</span>
+                        </div>
+                        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+                            <i class="fas fa-robot text-purple-400 text-xs mr-2"></i>
+                            <span class="text-xs text-gray-300">Custom Bots</span>
+                        </div>
+                    </div>
+                    <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/30 flex items-center justify-center w-full">
+                        <span class="relative z-10 flex items-center">
+                            <i class="fab fa-discord mr-3"></i> Join Our Discord
+                        </span>
+                        <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                    </a>
+                </div>
+                
+<div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 animate-slide-in-right">
+    <div class="flex items-center mb-6">
+        <div class="w-12 h-12 bg-gray-900/30 rounded-lg flex items-center justify-center text-white text-xl mr-4">
+            <i class="fab fa-github"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white">GitHub Project</h3>
+    </div>
+    <p class="text-gray-300 mb-6">
+        Explore our open-source tools, plugins, and mods powering the USA Roleplay ecosystem. We believe in transparency and community-driven development.
+    </p>
+    <div class="flex flex-wrap gap-3 mb-6">
+        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+            <i class="fas fa-code-branch text-green-400 text-xs mr-2"></i>
+            <span class="text-xs text-gray-300">10+ Repositories</span>
+        </div>
+        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+            <i class="fas fa-star text-yellow-400 text-xs mr-2"></i>
+            <span class="text-xs text-gray-300">5+ Stars</span>
+        </div>
+        <div class="flex items-center bg-gray-700/50 px-3 py-1 rounded-full">
+            <i class="fas fa-users text-blue-400 text-xs mr-2"></i>
+            <span class="text-xs text-gray-300">Community Contributions</span>
+        </div>
+    </div>
+    <a href="https://github.com/USA-ROLEPLAY" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-gray-700 to-black hover:from-gray-600 hover:to-gray-900 text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/10 flex items-center justify-center w-full">
+        <span class="relative z-10 flex items-center">
+            <i class="fab fa-github mr-3"></i> Visit Our GitHub
+        </span>
+        <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+    </a>
+</div>
+            
+            <div class="text-center animate-fade-in">
+                <h3 class="text-2xl font-bold text-white mb-6">Follow Us On Social Media</h3>
+    <div class="flex justify-center space-x-4">
+        <!-- X (Twitter alternative using a stylized X) -->
+        <a href="https://twitter.com/USARoleplay" target="_blank" class="w-12 h-12 bg-gray-800 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center transition-colors duration-300 transform hover:scale-110 font-bold text-xl">
+            X
+        </a>
+    
+        <!-- Steam -->
+        <a href="https://steamcommunity.com/groups/USA-Roleplay" target="_blank" class="w-12 h-12 bg-gray-800 hover:bg-[#171a21] rounded-full flex items-center justify-center text-white transition-colors duration-300 transform hover:scale-110">
+            <i class="fab fa-steam-symbol text-xl"></i>
+        </a>
+    </div>
+
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-gradient-to-b from-gray-900/50 to-gray-900 backdrop-blur-sm relative overflow-hidden">
+        <div class="absolute -top-20 left-1/3 w-72 h-72 bg-indigo-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-0 right-1/3 w-72 h-72 bg-emerald-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 animate-fade-in">
+                <div class="inline-flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700 mb-6">
+                    <div class="w-2 h-2 bg-pink-500 rounded-full mr-2 animate-pulse"></div>
+                    <span class="text-sm font-medium text-pink-400">PLAYER TESTIMONIALS</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black font-orbitron mb-6 text-white">
+                    <span class="text-gradient">Community Love</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Don't just take our word for it - hear from our amazing community members
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fade-in">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="Player" class="w-12 h-12 rounded-full border-2 border-indigo-500 mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Gardner</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "I've been part of this for a minute, about 3 months now and hands down it's been the best gaming community I've ever been part of. The people who manage this actually listen to the feedback that players give! and if there isn't a thing out there for that specific request, they create custom plugins or mods to make it happen."
+                    </p>
+                    <div class="text-sm text-gray-400">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Player" class="w-12 h-12 rounded-full border-2 border-emerald-500 mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">K.SLY</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "I'm an Arma 3 kind of guy so, as many I loved a community called ArmaLife which sadly died, so since then, there hasn't been anything like it until now. I love it. They listen to feedback, the vibe is pretty chill, and everyone feels welcomed."
+                    </p>
+                    <div class="text-sm text-gray-400">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Player" class="w-12 h-12 rounded-full border-2 border-purple-500 mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Lil Bitty</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "I haven’t been part of many communities, I’m still pretty new to gaming as a whole but finding this place has been awesome. I actually had fun, met a lot of people I now call friends, and like others here, I feel heard. I share feedback and they actually listen! On top of that, their open-source approach to the community is a really cool idea."
+                    </p>
+                    <div class="text-sm text-gray-400">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- FAQ Section -->
+    <section class="py-24 bg-gray-900/80 backdrop-blur-sm relative overflow-hidden">
+        <div class="absolute -top-20 right-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 animate-fade-in">
+                <div class="inline-flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700 mb-6">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
+                    <span class="text-sm font-medium text-blue-400">NEED HELP?</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black font-orbitron mb-6 text-white">
+                    <span class="text-gradient">Frequently Asked Questions</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Quick answers to common questions about our community
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden animate-fade-in">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-bold text-white">How do I join the Minecraft server?</h3>
+                        <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Our Minecraft server is whitelisted to maintain a quality community. To join:
+                            <br><br>
+                            1. Join our Discord server
+                            <br>
+                            2. Read the rules in #server-rules
+                            <br>
+                            3. Fill out the application in #whitelist-application
+                            <br>
+                            4. Wait for staff approval (usually within 24 hours)
+                            <br>
+                            5. Connect to play.usa-roleplay.org
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.1s;">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-bold text-white">Is there an age requirement to join?</h3>
+                        <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            We welcome players of all ages, but we do require maturity regardless of age. Our community is 13+ as per Discord's Terms of Service. Players under 13 cannot join our Discord but may still apply for the Minecraft server with parent/guardian permission.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.2s;">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-bold text-white">Are there any pay-to-win features?</h3>
+                        <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Absolutely not! We firmly believe in fair play. All gameplay advantages must be earned through skill and time investment. We do offer cosmetic donations (like special particle effects or name colors) to help support server costs, but these provide no gameplay benefits.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.3s;">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-bold text-white">How often does the server reset?</h3>
+                        <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Our main survival world never resets. We expand the world border as needed. Special event worlds may be temporary, but we always give at least 2 weeks notice before any world resets. Player inventories and currency are preserved across any resets.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.4s;">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                        <h3 class="text-lg font-bold text-white">Can I apply to be a staff member?</h3>
+                        <i class="fas fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            We regularly recruit staff from our active community members. Requirements include:
+                            <br><br>
+                            - 3+ months as an active community member
+                            <br>
+                            - Clean disciplinary record
+                            <br>
+                            - Demonstrated maturity and helpfulness
+                            <br><br>
+                            When applications open, we announce them in Discord. Most staff start as Helpers before advancing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center animate-fade-in">
+                <p class="text-xl text-gray-300 mb-8">Still have questions? Join our Discord and ask away!</p>
+                <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden inline-block group bg-gradient-to-br from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/40 flex items-center mx-auto">
+                    <span class="relative z-10 flex items-center">
+                        <i class="fab fa-discord mr-3 text-lg"></i> Get Help in Discord
+                    </span>
+                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                </a>
+            </div>
+        </div>
+    </section
+        <!-- Footer -->
+    <footer class="bg-gray-900/90 backdrop-blur-sm border-t border-gray-800 relative overflow-hidden">
+        <div class="absolute -top-20 left-1/3 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold title-font text-white mb-4">USARoleplay</h3>
-                    <p class="text-gray-400">
-                        Free, community-driven gaming servers for passionate gamers.
+                <div class="animate-fade-in">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="assets/logo.png" alt="USARoleplay Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-black font-orbitron text-gradient">USARoleplay</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Premium gaming community focused on immersive roleplay experiences across multiple games.
                     </p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="text-gray-400 hover:text-white">
+                    <div class="flex space-x-4">
+                        <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">
                             <i class="fab fa-discord text-xl"></i>
                         </a>
-                        <a href="https://github.com/USA-ROLEPLAY" target="_blank" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-github text-xl"></i>
+                        <a href="https://twitter.com/USARoleplay" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://youtube.com/USARoleplay" target="_blank" class="text-gray-400 hover:text-red-400 transition-colors duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://tiktok.com/@USARoleplay" target="_blank" class="text-gray-400 hover:text-black transition-colors duration-300">
+                            <i class="fab fa-tiktok text-xl"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white">About</a></li>
-                        <li><a href="#servers" class="text-gray-300 hover:text-white">Servers</a></li>
-                        <li><a href="#join" class="text-gray-300 hover:text-white">Join Us</a></li>
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-lg font-bold text-white mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-indigo-400 mr-2"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-indigo-400 mr-2"></i> About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servers" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-indigo-400 mr-2"></i> Servers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#join" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-indigo-400 mr-2"></i> Community
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs text-indigo-400 mr-2"></i> Rules
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Servers</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Minecraft Roleplay</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">DayZ Survival (Soon)</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Rust Factions (Soon)</a></li>
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-lg font-bold text-white mb-6">Our Servers</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-cube text-xs text-emerald-400 mr-3"></i> Minecraft RP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-skull text-xs text-amber-400 mr-3"></i> DayZ RP (Coming Soon)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-fire text-xs text-orange-400 mr-3"></i> Rust RP (Coming Soon)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center">
+                                <i class="fas fa-car text-xs text-blue-400 mr-3"></i> FiveM RP (Coming Soon)
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">Documentation</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">Server Status</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-lg font-bold text-white mb-6">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-indigo-400 mt-1 mr-3 text-sm"></i>
+                            <span class="text-gray-400">contact@usa-roleplay.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-discord text-indigo-400 mt-1 mr-3 text-sm"></i>
+                            <span class="text-gray-400">discord.gg/WKxJdBZQdU</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-globe text-indigo-400 mt-1 mr-3 text-sm"></i>
+                            <span class="text-gray-400">www.usa-roleplay.org</span>
+                        </li>
                     </ul>
+                    <div class="mt-6">
+                        <a href="https://discord.gg/WKxJdBZQdU" target="_blank" class="relative overflow-hidden group bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/30 flex items-center justify-center">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fab fa-discord mr-2"></i> Support Server
+                            </span>
+                            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 USARoleplay. All rights reserved.
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center animate-fade-in">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2025 USA-Roleplay. All rights reserved.
                 </p>
-                <p class="text-gray-400 text-sm mt-4 md:mt-0">
-                    Not affiliated with Mojang, Bohemia Interactive, or Facepunch Studios.
-                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-300 shadow-lg hover:shadow-indigo-500/30 hidden z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-fade-in');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle the content
+                faqContent.classList.toggle('hidden');
+                
+                // Rotate the icon
+                icon.classList.toggle('rotate-180');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-toggle').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.nextElementSibling.classList.add('hidden');
+                        otherButton.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
         });
         
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -573,38 +1422,122 @@
                     });
                     
                     // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 }
             });
         });
-        
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Add animation classes to specific elements
-        window.addEventListener('load', () => {
-            const elements = document.querySelectorAll('.slide-in-left, .slide-in-right');
-            elements.forEach(el => {
-                el.style.opacity = '1';
-            });
+
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6366f1"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6366f1",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 1,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
         });
     </script>
 </body>
